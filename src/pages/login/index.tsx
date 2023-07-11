@@ -6,14 +6,26 @@ import { CustomButton } from '../../components/custom-button'
 import { Link } from 'react-router-dom'
 import { Paths } from '../../paths'
 import { UserData, useLoginMutation } from '../../app/services/auth'
+import { isErrorWithMessage } from '../../utils/is-error-with-message'
+import { useState } from 'react'
+import { ErrorMessage } from '../../components/error-message'
 
 export const Login = () => {
   const [loginUser, loginUserResult] = useLoginMutation()
+  const [error, setError] = useState('')
 
   const login = async (data: UserData) => {
     try {
       await loginUser(data.unwrap())
-    } catch (err) {}
+    } catch (err) {
+      const maybeError = isErrorWithMessage(err)
+
+      if (maybeError) {
+        setError(err.data.message)
+      } else {
+        setError('Unknown error')
+      }
+    }
   }
 
   return (
@@ -31,6 +43,7 @@ export const Login = () => {
             <Typography.Text>
               Don't have account? <Link to={Paths.register}>Sign up</Link>
             </Typography.Text>
+            <ErrorMessage message={error} />
           </Space>
         </Card>
       </Row>
