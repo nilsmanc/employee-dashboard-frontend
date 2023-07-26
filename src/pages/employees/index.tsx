@@ -2,14 +2,15 @@ import { useEffect } from 'react'
 import { Table } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
 import { PlusCircleOutlined } from '@ant-design/icons'
-import { CustomButton } from '../../components/custom-button'
 import { Employee } from '@prisma/client'
-import { Paths } from '../../paths'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
+import { CustomButton } from '../../components/custom-button'
+import { Paths } from '../../paths'
 import { useGetAllEmployeesQuery } from '../../app/services/employees'
 import { Layout } from '../../components/layout'
 import { selectUser } from '../../features/auth/authSlice'
-import { useSelector } from 'react-redux'
 
 const columns: ColumnsType<Employee> = [
   {

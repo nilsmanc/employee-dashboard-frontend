@@ -2,10 +2,11 @@ import React from 'react'
 import { ConfigProvider, theme } from 'antd'
 import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
 import { store } from './app/store'
 import reportWebVitals from './reportWebVitals'
-import './index.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
 import { Paths } from './paths'
 import { Login } from './pages/login'
 import { Register } from './pages/register'
@@ -14,6 +15,8 @@ import { AddEmployee } from './pages/add-employee'
 import { Employees } from './pages/employees'
 import { Status } from './pages/status'
 import { EditEmployee } from './pages/edit-employee'
+
+import './index.css'
 
 const router = createBrowserRouter([
   {

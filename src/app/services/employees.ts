@@ -1,4 +1,5 @@
 import { Employee } from '@prisma/client'
+
 import { api } from './api'
 
 export const employeesApi = api.injectEndpoints({

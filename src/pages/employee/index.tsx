@@ -1,9 +1,10 @@
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import { Descriptions, Space, Divider, Modal } from 'antd'
-import { CustomButton } from '../../components/custom-button'
 import { useState } from 'react'
-import { Paths } from '../../paths'
 import { useNavigate, Link, useParams, Navigate } from 'react-router-dom'
+
+import { CustomButton } from '../../components/custom-button'
+import { Paths } from '../../paths'
 import {
   useGetEmployeeQuery,
   useRemoveEmployeeMutation,
